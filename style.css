@@ -392,8 +392,8 @@ iframe{
     /* animation: move 2s 1; */
     transform: translate(100vw, 0);
     border-radius: 10px;
-    width: 75%;
-    height: 400px;
+    width: 70%;
+    height: 450px;
 }
 
 @keyframes move{
