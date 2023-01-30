@@ -53,36 +53,42 @@ let main_interval = setInterval(() => {
 
 // CHANGE WEB COLORS
 
-let header_bg = document.querySelector("#header_bg");
-let title_bg = document.querySelector("#title_bg");
-let title_color = document.querySelector("#title_color");
-let section_bg = document.querySelector("#section_bg");
-let reset = document.querySelector("#reset");
+let header_bg = document.querySelectorAll("#header_bg");
+let title_bg = document.querySelectorAll("#title_bg");
+let title_color = document.querySelectorAll("#title_color");
+let section_bg = document.querySelectorAll("#section_bg");
+let reset = document.querySelectorAll("#reset");
 let main_color = "";
 
 const Random = (e) => {
     return Math.round(Math.random() * 360);
 }
 
-header_bg.addEventListener("click", () => {
-    window.localStorage.setItem("header_bg", `hsl(${Random()}, 45%, 65%)`);
-    window.location.reload()
+header_bg.forEach((e)=>{
+    e.addEventListener("click", ()=>{
+        window.localStorage.setItem("header_bg", `hsl(${Random()}, 45%, 65%)`);
+        window.location.reload()
+    })
 })
 
 document.querySelector("header").style.backgroundColor = window.localStorage.getItem("header_bg");
 
-title_bg.addEventListener("click", () => {
-    window.localStorage.setItem("title_bg", `hsl(${Random()}, 55%, 75%)`);
-    window.location.reload()
+title_bg.forEach((e)=>{
+    e.addEventListener("click", ()=>{
+        window.localStorage.setItem("title_bg", `hsl(${Random()}, 55%, 75%)`);
+        window.location.reload()
+    })
 })
 
-title_color.addEventListener("click", () => {
-    // let hex_random = Math.random().toString(16).slice(2, 8);
-    const HexRandom = () => {
-        return Math.random().toString(16).slice(2, 8)
-    }
-    window.localStorage.setItem("title_color", `#${HexRandom()}`);
-    window.location.reload()
+title_color.forEach((e)=>{
+    e.addEventListener("click", ()=>{
+        // let hex_random = Math.random().toString(16).slice(2, 8);
+        const HexRandom = () => {
+            return Math.random().toString(16).slice(2, 8)
+        }
+        window.localStorage.setItem("title_color", `#${HexRandom()}`);
+        window.location.reload()
+    })
 })
 
 let titles = document.querySelectorAll("h1:not(body > header > h1)");
@@ -91,13 +97,15 @@ for (let i = 0; i < titles.length; i++) {
     titles[i].style.color = window.localStorage.getItem("title_color");
 }
 
-section_bg.addEventListener("click", () => {
-    let arr = [];
-    for (let i = 0; i < 3; i++) {
-        arr.push(Math.round(Math.random() * 255));
-    }
-    window.localStorage.setItem("section_bg", `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})`);
-    window.location.reload();
+section_bg.forEach((e)=>{
+    e.addEventListener("click", ()=>{
+        let arr = [];
+        for (let i = 0; i < 3; i++) {
+            arr.push(Math.round(Math.random() * 255));
+        }
+        window.localStorage.setItem("section_bg", `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})`);
+        window.location.reload();
+    })
 })
 
 let sections = document.querySelectorAll("section");
@@ -105,16 +113,11 @@ for (let i = 0; i < sections.length; i++) {
     sections[i].style.backgroundColor = window.localStorage.getItem("section_bg")
 }
 
-reset.addEventListener("click", () => {
-    document.querySelector("header").style.backgroundColor = "#3d4a59";
-    for (let i = 0; i < titles.length; i++) {
-        titles[i].style.backgroundColor = main_color;
-        titles[i].style.color = "#fff"
-    }
-    for (let i = 0; i < sections.length; i++) {
-        sections[i].style.backgroundColor = "#fff";
-    }
-    window.localStorage.clear()
+reset.forEach((e)=>{
+    e.addEventListener("click", ()=>{
+        window.localStorage.clear();
+        window.location.reload();
+    })
 })
 
 // RANDOM VIDEOS
