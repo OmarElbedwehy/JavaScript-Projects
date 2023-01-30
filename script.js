@@ -606,7 +606,9 @@ fetch("https://api.currencyfreaks.com/latest?apikey=3fae5a9a0b8c4609a8246a7acada
             egp_to_usd.textContent = `{${e.target.value}} USD Dollar = {${(e.target.value * egpInUsd)}} Egyptian Pound`;
         }
     })
-})
+}).catch(
+  document.querySelector("#currency").remove()
+)
 
 document.querySelector("#convert_egp_to_usd").addEventListener("submit", (e)=>{
     e.preventDefault();
