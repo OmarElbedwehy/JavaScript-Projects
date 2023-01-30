@@ -4,6 +4,9 @@
 let preloader = document.querySelector("#preloader");
 window.onload = function(){
   preloader.style.opacity = "0";
+  setTimeout(()=>{
+    preloader.style.display = "none";
+  }, 500)
 }
 
 //CHANGE MODE
