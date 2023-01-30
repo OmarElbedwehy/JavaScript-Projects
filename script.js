@@ -610,7 +610,10 @@ fetch("https://api.currencyfreaks.com/latest?apikey=3fae5a9a0b8c4609a8246a7acada
         }
     })
 }).catch(
-  document.querySelector("#currency").remove()
+  document.querySelector("#currency").remove(),
+  currency_section_link.forEach((e) => {
+    e.remove()
+  })
 )
 
 document.querySelector("#convert_egp_to_usd").addEventListener("submit", (e)=>{
