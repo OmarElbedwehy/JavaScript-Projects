@@ -203,7 +203,6 @@ window.onscroll = function () {
     }else{
       document.querySelector("#scroll_header").style.display = "none";
     }
-    console.log(this.scrollY)
 }
 
 // SCROLL TO TOP
@@ -609,12 +608,7 @@ fetch("https://api.currencyfreaks.com/latest?apikey=3fae5a9a0b8c4609a8246a7acada
             egp_to_usd.textContent = `{${e.target.value}} USD Dollar = {${(e.target.value * egpInUsd)}} Egyptian Pound`;
         }
     })
-}).catch(
-  document.querySelector("#currency").remove(),
-  currency_section_link.forEach((e) => {
-    e.remove()
-  })
-)
+})
 
 document.querySelector("#convert_egp_to_usd").addEventListener("submit", (e)=>{
     e.preventDefault();
